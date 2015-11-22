@@ -12,7 +12,7 @@ The purpose of this project is to demonstrate the necessary skills involved in c
 
 The goal of the project is to create a R script named run_analysis.R that does the following things:
 
-1. Merges the traininng and test sets to create one data set.
+1. Merges the training and test sets to create one data set.
 2. Extracts only the measurements on the mean and standard deviation for each measuerment.
 3. Assigns descriptive names to the activities in the data set.
 4. Assigns descriptive variable names to the data set.
