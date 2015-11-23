@@ -1,3 +1,4 @@
+##Section 1
 ## Start by gathering the raw data
 
 if (!file.exists(./"ProjectData"))
@@ -42,6 +43,7 @@ names(subject_column) <- c("subject")
 DATA <- cbind(x_column, y_column)
 DATA <- cbind(DATA, subject_column)
  
+##Section2
 #Subset the data to only include mean and standard deviation data
 
 subset_features <- features$V2[grep("mean\\()|std()",features$V2)]
@@ -49,6 +51,7 @@ subset_columns <- c(as.character(subset_features),"activity","subject")
 
 DATA <- subset(DATA, select = subset_columns)
 
+##Section 3
 ## Merge data frame with activity_lables to match specific activities to their corresponding integer code 
 
 library(dplyr)
@@ -58,6 +61,7 @@ DATA <- merge(DATA, activity_names, by.x = "activity", by.y = "V1" )
 DATA <- DATA[,-1]
 DATA <- rename(DATA, activity = V2)
 
+##Section4
 ## Label variables with descriptive names
 
 variables = colnames((DATA))
@@ -87,6 +91,7 @@ names(DATA) <- gsub("Mag", "Magnitude ", names(DATA))
 names(DATA) <- gsub("Jerk", "Jerk ", names(DATA))  
 names(DATA) <- gsub("BodyBody", "Body", names(DATA))
 
+##Section 5
 ##  Create a second independent tidy data set with the average of each variable for each activity and subject_test
 
 TidyData <- aggregate(. ~subject + activity, DATA, mean)
